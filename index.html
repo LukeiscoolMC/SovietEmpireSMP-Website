@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Join SovietEmpireSMP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Minecraft pixel font -->
+  <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Minecraftia', monospace;
+      text-align: center;
+      overflow: hidden;
+      background: #2ecc40; /* Solid green background */
+      position: relative;
+    }
+
+    .container {
+      position: relative;
+      background: rgba(42, 42, 42, 0.95);
+      border: 4px solid #000;
+      padding: 32px;
+      border-radius: 14px;
+      box-shadow: 0 0 0 4px #555;
+      max-width: 420px;
+      z-index: 10;
+    }
+
+    h1 {
+      margin-bottom: 12px;
+      font-size: 24px;
+      text-shadow: 2px 2px #000;
+      color: #f0f0f0;
+    }
+
+    p {
+      font-size: 12px;
+      opacity: 0.9;
+      color: #f0f0f0;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 16px 28px;
+      background: linear-gradient(#6aff6a, #2ecc40);
+      color: #000;
+      text-decoration: none;
+      font-size: 14px;
+      border: 3px solid #000;
+      box-shadow: inset -3px -3px rgba(0,0,0,0.3);
+      animation: pulse 1.5s infinite;
+      transition: transform 0.1s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    .btn:active {
+      transform: translateY(2px);
+      box-shadow: inset 3px 3px rgba(0,0,0,0.4);
+    }
+
+    .small-btn {
+      display: inline-block;
+      margin: 10px 6px 0 6px;
+      padding: 10px 18px;
+      background: #fff;
+      color: #000;
+      border: 3px solid #000;
+      font-family: 'Minecraftia', monospace;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: transform 0.1s;
+    }
+
+    .small-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .footer-text {
+      margin-top: 20px;
+      font-size: 10px;
+      opacity: 0.8;
+      color: #f0f0f0;
+      line-height: 1.4;
+    }
+
+    /* Floating green particles */
+    .particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: rgba(144, 255, 144, 0.8); /* Light green */
+      z-index: 1;
+      border-radius: 50%;
+      animation: float 8s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.8; }
+      50% { transform: translateY(-100px) translateX(50px) rotate(180deg); opacity: 0.4; }
+      100% { transform: translateY(0) translateX(0) rotate(360deg); opacity: 0.8; }
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0px #6aff6a; }
+      50% { box-shadow: 0 0 15px #6aff6a; }
+      100% { box-shadow: 0 0 0px #6aff6a; }
+    }
+
+    /* Floating mobs */
+    .mob {
+      position: absolute;
+      z-index: 5;
+      animation: floatMob 12s ease-in-out infinite;
+    }
+
+    @keyframes floatMob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-40px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>SovietEmpireSMP</h1>
+    <p>Tap below to visit the server page or copy server info</p>
+
+    <!-- Redirect button -->
+    <a class="btn" href="https://add.aternos.org/SovietEmpireSMP" target="_blank">
+      ▶ JOIN SERVER
+    </a>
+
+    <!-- Copy buttons -->
+    <div>
+      <button class="small-btn" onclick="copyIP()">📋 Copy IP</button>
+      <button class="small-btn" onclick="copyPort()">📋 Copy Port</button>
+    </div>
+
+    <!-- Footer disclaimer and moderators -->
+    <p class="footer-text">
+      This server is for version 1.21.80 only and will be soon updated to the latest versions.<br><br>
+      Special Thanks to our moderators!<br>
+      LukeiscoolMC<br>
+      BirdieBirch<br>
+      Jarrenze
+    </p>
+  </div>
+
+  <script>
+    const serverIP = "SovietEmpireSMP.aternos.me";
+    const serverPort = "50621";
+
+    function copyIP() {
+      navigator.clipboard.writeText(serverIP);
+      alert("Server IP copied to clipboard!");
+    }
+
+    function copyPort() {
+      navigator.clipboard.writeText(serverPort);
+      alert("Server port copied to clipboard!");
+    }
+
+    // Generate floating green particles
+    for (let i = 0; i < 30; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      particle.style.top = Math.random() * window.innerHeight + 'px';
+      particle.style.left = Math.random() * window.innerWidth + 'px';
+      particle.style.animationDelay = Math.random() * 8 + 's';
+      particle.style.width = particle.style.height = (Math.random() * 6 + 2) + 'px';
+      document.body.appendChild(particle);
+    }
+
+    // Add floating mobs (Pig, Chicken, Creeper, Ender Dragon)
+    const mobs = [
+      { src: 'https://i.imgur.com/LfRiq18.png', width: 80 }, // Pig
+      { src: 'https://i.imgur.com/wr1eyLK.png', width: 60 }, // Chicken
+      { src: 'https://i.imgur.com/RyhysVH.png', width: 70 },  // Creeper
+      { src: 'https://minecraft.wiki/images/Ender_Dragon.gif?fb9ba', width: 140 } // Ender Dragon
+    ];
+
+    mobs.forEach(mobData => {
+      const mob = document.createElement('img');
+      mob.src = mobData.src;
+      mob.classList.add('mob');
+      mob.style.top = Math.random() * (window.innerHeight - 120) + 'px';
+      mob.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+      mob.style.width = mobData.width + 'px';
+      mob.style.animationDuration = (12 + Math.random() * 8) + 's';
+      document.body.appendChild(mob);
+    });
+  </script>
+
+</body>
+</html>
